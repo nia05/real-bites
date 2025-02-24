@@ -1,1 +1,6 @@
-<p>recipe-card works!</p>
+<mat-card class="recipe-card" appearance="outlined" itemscope itemtype="https://schema.org/Recipe">
+    <img mat-card-image [src]="recipe.image" [alt]="recipe.name" itemprop="image" class="recipe-card__image">
+    <div class="recipe-card__overlay">
+        <h3 class="recipe-card__overlay-title">{{ recipe.name }}</h3>
+    </div>
+</mat-card>
