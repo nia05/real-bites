@@ -14,7 +14,8 @@
     
     <div *ngIf="!loading" class="recipe-grid">
         <ng-container *ngFor="let recipe of recipeResponse.recipes">
-            <article itemscope itemtype="https://schema.org/Recipe">
+            <article itemscope itemtype="https://schema.org/Recipe" 
+                [routerLink]="['/recipe', recipe.id]">
                 <app-recipe-card [recipe]="recipe"></app-recipe-card>
             </article>
         </ng-container>

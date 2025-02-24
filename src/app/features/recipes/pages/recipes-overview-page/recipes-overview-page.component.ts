@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -10,19 +11,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 
+import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
+
+import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
+
 import { RecipeResponse } from '../../../../shareable/models/recipe.model';
 
 import { RecipeService } from '../../../../shareable/services/recipe/recipe.service';
-import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
-import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
-
 
 @Component({
     selector: 'app-recipes-overview-page',
     imports: [ 
         CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
         MatPaginatorModule, MatFormFieldModule, MatInputModule, MatIconModule,
-        MatSelectModule, FormsModule
+        MatSelectModule, FormsModule, RouterModule
      ],
     templateUrl: './recipes-overview-page.component.html',
     styleUrl: './recipes-overview-page.component.scss'
@@ -36,13 +38,15 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
     private search$ = new Subject<string>();  
     private destroy$ = new Subject<void>();
 
-    constructor(private recipeService: RecipeService) {}
+    constructor(
+        private recipeService: RecipeService
+    ) {}
 
     ngOnInit(): void {
         this._getRecipes();
 
         this.search$.pipe(
-            debounceTime(300), 
+            debounceTime(500), 
             distinctUntilChanged(),
             takeUntil(this.destroy$)
         ).subscribe((searchTerm: string) => {
@@ -59,7 +63,7 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
         this._getRecipes(event.pageSize, event.pageIndex * event.pageSize);
     }
 
-    onSearch(keyword: string) {
+    onSearch(keyword: string): void {
         this.search$.next(keyword)
     }
 
