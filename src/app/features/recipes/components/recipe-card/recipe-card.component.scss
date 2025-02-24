@@ -2,10 +2,10 @@
 
 .recipe-card {
     position: relative;
-    cursor: pointer; 
+    cursor: pointer;
     &__image {
         width: 100%;
-        display: block;
+        min-height: 200px; 
     }
 
     &__overlay {
