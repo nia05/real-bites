@@ -1,0 +1,89 @@
+@use '../../../../../../public/styles/variables' as var;
+
+.recipe-detail {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: var.$white;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var.$grey;
+        font-size: 1rem;
+        
+        span:not(:first-of-type) {
+            margin-left: 0.25rem;
+        }
+    }
+
+    &__rating {
+        display: flex;
+        align-items: center;
+
+        .recipe-icon {
+            margin-right: 0.25rem;
+            color: var.$orange;
+        }
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+
+        img {
+            width: 100%; 
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+
+        span {
+            white-space: nowrap;
+        }
+    }
+
+    &__section-title {
+        margin-top: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    &__ingredients,
+    &__instructions {
+        padding-left: 1.5rem;
+        line-height: 1.6; 
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    &__tags,
+    &__meal-type {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+
+        &-item {
+            background-color: var.$light-grey;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+    }
+}

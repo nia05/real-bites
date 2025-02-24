@@ -1,1 +1,42 @@
-<p>recipe-detail-page works!</p>
+<section class="recipe-detail">
+    <h1 class="recipe-detail__title">{{ recipe.name }}</h1>
+    <p class="recipe-detail__meta">
+        <span class="recipe-detail__cuisine">{{ recipe.cuisine }} | </span> 
+        <span class="recipe-detail__difficulty"> Difficulty: {{ recipe.difficulty }} | </span>
+        <span class="recipe-detail__rating">
+            <mat-icon aria-label="Star" fontIcon="star" class="recipe-icon"></mat-icon>
+            {{ recipe.rating }} ({{ recipe.reviewCount }} reviews)
+        </span>
+    </p>
+
+    <div class="recipe-detail__image">
+        <img [src]="recipe.image" [alt]="recipe.name">
+    </div>
+
+    <div class="recipe-detail__info">
+        <span><strong>Prep Time:</strong> {{ recipe.prepTimeMinutes }} min | </span>
+        <span><strong>Cook Time:</strong> {{ recipe.cookTimeMinutes }} min | </span>
+        <span><strong>Servings:</strong> {{ recipe.servings }} | </span>
+        <span><strong>Calories:</strong> {{ recipe.caloriesPerServing }} kcal </span>
+    </div>
+    
+    <h2 class="recipe-detail__section-title">Ingredients</h2>
+    <ul class="recipe-detail__ingredients">
+        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+    </ul>
+
+    <h2 class="recipe-detail__section-title">Instructions</h2>
+    <ol class="recipe-detail__instructions">
+        <li *ngFor="let step of recipe.instructions">{{ step }}</li>
+    </ol>
+
+    <h2 class="recipe-detail__section-title">Tags</h2>
+    <div class="recipe-detail__tags">
+        <span *ngFor="let tag of recipe.tags" class="recipe-detail__tags-item">{{ tag }}</span>
+    </div>
+
+    <h2 class="recipe-detail__section-title">Meal Type</h2>
+    <div class="recipe-detail__meal-type">
+        <span *ngFor="let meal of recipe.mealType" class="recipe-detail__meal-type-item">{{ meal }}</span>
+    </div>
+</section>
