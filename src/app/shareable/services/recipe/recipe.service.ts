@@ -18,13 +18,20 @@ export class RecipeService {
     getAllRecipes(
         limit: number = 10, 
         skip: number = 0, 
-        search: string | null
+        search: string 
     ): Observable<RecipeResponse> {
-        const params = new HttpParams()
-          .set('limit', limit.toString())
-          .set('skip', skip.toString());
-    
-        return this.http.get<RecipeResponse>(this.apiUrl, { params });
+        let apiEndpoint = `${this.apiUrl}`;
+
+        let params = new HttpParams()
+            .set('limit', limit.toString())
+            .set('skip', skip.toString());
+
+        if (search.trim()) {
+            apiEndpoint = `${this.apiUrl}/search`;
+            params = params.set('q', search);
+        }
+
+        return this.http.get<RecipeResponse>(apiEndpoint, { params });
     }
 
     getRecipeById(id: number): Observable<Recipe> {
