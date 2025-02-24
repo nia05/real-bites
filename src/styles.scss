@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @use '../public/styles/variables' as var;
+@use '../public/styles/theme' as theme;
 @use '@angular/material' as mat;
 
 :root {
-    @include mat.progress-bar-overrides((
-      active-indicator-color:  var.$green,
+    @include mat.progress-bar-overrides(( 
+      active-indicator-color: var.$green, 
       track-color: var.$white
     ));
 }

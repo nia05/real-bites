@@ -1,0 +1,121 @@
+@use '@angular/material' as mat;
+@use './variables' as var;
+
+// Custom Grey Palette
+$custom-grey-palette: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: var.$grey, // Main grey color
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #d5d5d5,
+  A200: #aaaaaa,
+  A400: #303030,
+  A700: #616161,
+  contrast: (
+    50: var.$black,
+    100: var.$black,
+    200: var.$black,
+    300: var.$black,
+    400: var.$black,
+    500: var.$white,
+    600: var.$white,
+    700: var.$white,
+    800: var.$white,
+    900: var.$white,
+    A100: var.$black,
+    A200: var.$black,
+    A400: var.$white,
+    A700: var.$white,
+  )
+);
+
+// Custom Green Palette
+$custom-green-palette: (
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: var.$green, // Main green color
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
+  contrast: (
+    50: var.$black,
+    100: var.$black,
+    200: var.$black,
+    300: var.$black,
+    400: var.$black,
+    500: var.$white,
+    600: var.$white,
+    700: var.$white,
+    800: var.$white,
+    900: var.$white,
+    A100: var.$black,
+    A200: var.$black,
+    A400: var.$black,
+    A700: var.$black,
+  )
+);
+
+// Custom Orange Palette
+$custom-orange-palette: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: var.$orange, // Main orange color
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: var.$black,
+    100: var.$black,
+    200: var.$black,
+    300: var.$black,
+    400: var.$black,
+    500: var.$black,
+    600: var.$black,
+    700: var.$black,
+    800: var.$black,
+    900: var.$black,
+    A100: var.$black,
+    A200: var.$black,
+    A400: var.$black,
+    A700: var.$black,
+  )
+);
+
+// Define the primary, accent, and warn palettes using the updated functions
+$my-primary:  mat.m2-define-palette($custom-green-palette);
+$my-accent: mat.m2-define-palette($custom-grey-palette);
+$my-warn: mat.m2-define-palette($custom-orange-palette);
+
+// Create the theme object using the updated function
+$my-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  ),
+));
+
+// Include the theme styles
+@include mat.all-component-themes($my-theme);
