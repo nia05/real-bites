@@ -5,9 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
-import { RecipeResponse } from '../../../shareable/models/recipe.model';
+import { RecipeResponse } from '../../../../shareable/models/recipe.model';
 
-import { RecipeService } from '../../../shareable/services/recipe/recipe.service';
+import { RecipeService } from '../../../../shareable/services/recipe/recipe.service';
 import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
 
 
