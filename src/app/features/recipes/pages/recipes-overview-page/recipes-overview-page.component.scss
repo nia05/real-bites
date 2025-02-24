@@ -1,0 +1,30 @@
+@use '../../../../../../public/styles/variables' as var;
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);  
+    gap: 1rem;
+}
+
+.paginator {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+    .recipe-grid {
+        grid-template-columns: repeat(3, 1fr);  
+    }
+}
+
+@media (max-width: 768px) {
+    .recipe-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-grid {
+        grid-template-columns: 1fr;  
+    }
+}

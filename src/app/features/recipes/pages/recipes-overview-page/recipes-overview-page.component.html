@@ -1,0 +1,22 @@
+<section>
+    <h1>Recipes</h1>
+    <p>Discover a variety of delicious recipes.</p>
+  
+    <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar"></mat-progress-bar>
+    <div *ngIf="!loading" class="recipe-grid">
+        <ng-container *ngFor="let recipe of recipeResponse.recipes">
+            <article itemscope itemtype="https://schema.org/Recipe">
+                <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            </article>
+        </ng-container>
+    </div>
+
+    <mat-paginator *ngIf="!loading" hidePageSize
+        [length]="recipeResponse.total"
+        [pageSize]="recipeResponse.limit"
+        [pageIndex]="pageIndex"
+        class="paginator"
+        aria-label="Select page"
+        (page)="onPageChange($event)">
+  </mat-paginator>
+</section>
