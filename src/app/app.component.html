@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<header class="toolbar">
+    <a href="/" class="toolbar__logo" aria-label="Home">
+        <img src="/icons/logo.svg" alt="Website Logo">
+    </a>
+
+    <nav class="menu" aria-label="Main Navigation">
+        <ul class="menu__list">
+            <li class="menu__item">
+                <a routerLink="recipes" class="menu__link">Recipes</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="content">
+    <router-outlet></router-outlet>
+</main>
