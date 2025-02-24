@@ -15,7 +15,11 @@ export class RecipeService {
 
     constructor(private http: HttpClient) {}
 
-    getAllRecipes(limit: number = 10, skip: number = 0, search: string): Observable<RecipeResponse> {
+    getAllRecipes(
+        limit: number = 10, 
+        skip: number = 0, 
+        search: string | null
+    ): Observable<RecipeResponse> {
         const params = new HttpParams()
           .set('limit', limit.toString())
           .set('skip', skip.toString());

@@ -40,7 +40,7 @@ export class RecipesOverviewPageComponent implements OnInit {
     }
 
     private _getRecipes(page?: number, limit?: number) {
-        this.recipeService.getAllRecipes(page, limit).subscribe({
+        this.recipeService.getAllRecipes(page, limit, null).subscribe({
             next: (recipes: RecipeResponse) => {
                 this.recipeResponse = recipes;
                 this.loading = false;
