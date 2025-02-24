@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@use '../public/styles/variables' as var;
+@use '@angular/material' as mat;
+
+:root {
+    @include mat.progress-bar-overrides((
+      active-indicator-color:  var.$green,
+      track-color: var.$white
+    ));
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    color: var.$black;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var.$light-grey; 
+}
+
+a {
+    text-decoration: none;
+    color: var.$green;
+}
