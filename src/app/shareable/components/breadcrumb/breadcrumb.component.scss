@@ -1,6 +1,7 @@
 @use '../../../../../../real-bites/public/styles/variables' as var;
 
 .breadcrumb {
+    padding-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
