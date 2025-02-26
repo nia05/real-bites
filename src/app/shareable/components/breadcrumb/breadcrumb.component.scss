@@ -19,8 +19,12 @@
             color: var.$grey;
         }
 
-        &:last-child::after {
-            content: '';
+        &:last-child{
+            color: var.$light-green;
+            &::after {
+                content: '';
+            }
         }
+
     }
 }
