@@ -36,7 +36,7 @@ export class RecipeDetailPageComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.routeSub = this.route.paramMap.subscribe(params => {
-            const recipeId = params.get('ID');
+            const recipeId = params.get('id');
             if (recipeId) {
               this._getRecipe(recipeId);
             }
