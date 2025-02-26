@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -14,8 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 
 import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
+import { BreadcrumbComponent } from '../../../../shareable/components/breadcrumb/breadcrumb.component';
 
 import { RecipeResponse } from '../../../../shareable/models/recipe.model';
+import { Breadcrumb } from '../../../../shareable/models/breadcrumb.model';
 
 import { RecipeService } from '../../../../shareable/services/recipe/recipe.service';
 
@@ -24,7 +25,7 @@ import { RecipeService } from '../../../../shareable/services/recipe/recipe.serv
     imports: [ 
         CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
         MatPaginatorModule, MatFormFieldModule, MatInputModule, MatIconModule,
-        MatSelectModule, FormsModule
+        MatSelectModule, BreadcrumbComponent
      ],
     templateUrl: './recipes-overview-page.component.html',
     styleUrl: './recipes-overview-page.component.scss'
@@ -34,6 +35,10 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
     pageIndex = 0;
     pageSize = 10;
     loading = true;
+
+    breadcrumbList: Breadcrumb[] = [
+        {label: 'Recipes', route: '/recipes'}
+    ];
 
     private search$ = new Subject<string>();  
     private destroy$ = new Subject<void>();
