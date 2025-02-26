@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -24,7 +24,7 @@ import { RecipeService } from '../../../../shareable/services/recipe/recipe.serv
     imports: [ 
         CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
         MatPaginatorModule, MatFormFieldModule, MatInputModule, MatIconModule,
-        MatSelectModule, FormsModule, RouterModule
+        MatSelectModule, FormsModule
      ],
     templateUrl: './recipes-overview-page.component.html',
     styleUrl: './recipes-overview-page.component.scss'
@@ -39,6 +39,7 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
     private destroy$ = new Subject<void>();
 
     constructor(
+        private router: Router,
         private recipeService: RecipeService
     ) {}
 
@@ -65,6 +66,10 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
 
     onSearch(keyword: string): void {
         this.search$.next(keyword)
+    }
+
+    onRecipeRediect(recipeID: number) {
+        this.router.navigate(['/recipe', recipeID]);
     }
 
     private _getRecipes(page?: number, limit?: number, search = '') {
