@@ -13,6 +13,14 @@
     padding-bottom: 1rem;
 }
 
+.icon {
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    &:hover {
+        color: var.$light-green;
+    }
+}
+
 .paginator {
     font-family: 'Montserrat', sans-serif;
     background-color: transparent;

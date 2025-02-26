@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 
@@ -25,7 +26,7 @@ import { RecipeService } from '../../../../shareable/services/recipe/recipe.serv
     imports: [ 
         CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
         MatPaginatorModule, MatInputModule, MatIconModule, MatFormFieldModule, 
-        BreadcrumbComponent, MatButtonModule
+        BreadcrumbComponent, MatButtonModule, MatTooltipModule
      ],
     templateUrl: './recipes-overview-page.component.html',
     styleUrl: './recipes-overview-page.component.scss'
@@ -75,6 +76,10 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
 
     onRecipeRediect(recipeID: number) {
         this.router.navigate(['/recipes', recipeID]);
+    }
+
+    onRecipeCreateRedirect() {
+        this.router.navigate(['/recipes', 'create']);
     }
 
     private _getRecipes(page?: number, limit?: number, search = '') {

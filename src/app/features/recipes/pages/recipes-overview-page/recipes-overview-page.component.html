@@ -12,10 +12,16 @@
                 placeholder="Search recipes">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
-        <mat-icon color="primary" class="icon">add</mat-icon>
+        <mat-icon color="primary" class="icon" 
+            matTooltip="Create new recipe"
+            aria-label="Create new recipe"
+            (click)="onRecipeCreateRedirect()">add</mat-icon>
     </div>
 
-    <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar"></mat-progress-bar>
+    <mat-progress-bar *ngIf="loading" 
+        mode="indeterminate" 
+        class="progress-bar">
+    </mat-progress-bar>
     
     <div *ngIf="!loading" class="recipe-grid">
         <ng-container *ngFor="let recipe of recipeResponse.recipes">
