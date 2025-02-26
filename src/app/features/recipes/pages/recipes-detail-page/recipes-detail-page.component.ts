@@ -14,12 +14,12 @@ import { Breadcrumb } from '../../../../shareable/models/breadcrumb.model';
 import { RecipeService } from '../../../../shareable/services/recipe/recipe.service'; 
 
 @Component({
-    selector: 'app-recipe-detail-page',
+    selector: 'app-recipes-detail-page',
     imports: [ CommonModule, MatIconModule, BreadcrumbComponent ],
-    templateUrl: './recipe-detail-page.component.html',
-    styleUrl: './recipe-detail-page.component.scss'
+    templateUrl: './recipes-detail-page.component.html',
+    styleUrl: './recipes-detail-page.component.scss'
 })
-export class RecipeDetailPageComponent implements OnInit, OnDestroy {
+export class RecipesDetailPageComponent implements OnInit, OnDestroy {
     recipe!: Recipe;
     loading = true;
 
