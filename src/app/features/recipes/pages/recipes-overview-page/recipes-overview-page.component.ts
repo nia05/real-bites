@@ -74,7 +74,7 @@ export class RecipesOverviewPageComponent implements OnInit, OnDestroy {
     }
 
     onRecipeRediect(recipeID: number) {
-        this.router.navigate(['/recipe', recipeID]);
+        this.router.navigate(['/recipes', recipeID]);
     }
 
     private _getRecipes(page?: number, limit?: number, search = '') {

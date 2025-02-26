@@ -12,6 +12,7 @@ import { Recipe } from '../../../../shareable/models/recipe.model'
 import { Breadcrumb } from '../../../../shareable/models/breadcrumb.model';
 
 import { RecipeService } from '../../../../shareable/services/recipe/recipe.service'; 
+import { BreadcrumbService } from '../../../../shareable/services/breadcrumb/breadcrumb.service';
 
 @Component({
     selector: 'app-recipes-detail-page',
@@ -23,15 +24,14 @@ export class RecipesDetailPageComponent implements OnInit, OnDestroy {
     recipe!: Recipe;
     loading = true;
 
-    breadcrumbList: Breadcrumb[] = [
-        {label: 'Recipes', route: '/recipes'}
-    ];
+    breadcrumbList!: Breadcrumb[];
 
     private routeSub!: Subscription;
 
     constructor(
         private route: ActivatedRoute,
-        private recipeService: RecipeService
+        private recipeService: RecipeService,
+        private breadcrumbService: BreadcrumbService
     ) {}
 
     ngOnInit(): void {
@@ -46,7 +46,8 @@ export class RecipesDetailPageComponent implements OnInit, OnDestroy {
     private _getRecipe(id: string): void {
         this.recipeService.getRecipeById(Number(id)).subscribe({
             next: (recipe: Recipe) => {
-                this.breadcrumbList.push({ label: recipe.name, route: '/recipe/' + recipe.id})
+                this.breadcrumbService.setBreadcrumbs('recipe-detail', {name: recipe.name, id: recipe.id});
+                this.breadcrumbList = this.breadcrumbService.getBreadcrumbs();
                 this.recipe = recipe; 
                 this.loading = false;
             },
