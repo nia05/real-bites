@@ -1,89 +1,49 @@
 @use '../../../../../../public/styles/variables' as var;
 
 .recipe-detail {
-    max-width: 50rem;
-    margin: 0 auto;
+    width: calc(100% - 4rem);
     padding: 1.5rem;
     background-color: var.$white;
 
-    &__title {
-        text-align: center;
-    }
-
-    &__meta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var.$grey;
-        font-size: 1rem;
-        
-        span:not(:first-of-type) {
-            margin-left: 0.25rem;
-        }
-    }
-
-    &__rating {
-        display: flex;
-        align-items: center;
-
-        .recipe-icon {
-            margin-right: 0.25rem;
-            color: var.$orange;
-        }
-    }
-
     &__image {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-
-        img {
-            width: 100%; 
-        }
+        width: 100%;
+        display: block;
     }
-
     &__info {
+        list-style: none; 
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
+        padding: 0;
+        margin: 1rem 0;
+        li {
+            padding: 0.25rem 1.5rem;
+            border-right: 0.063rem solid var.$grey;
+            &:first-child {
+                padding-left: 0;
+            }
+            &::before {
+                content: ""; 
+            }
+        }
 
         span {
-            white-space: nowrap;
+            font-size: 0.75rem;
+            line-height: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        &-title {
+            text-transform: uppercase;
+            color: var.$grey;
+            padding-bottom: 0.25rem;
         }
     }
-
-    &__section-title {
-        margin-top: 1.5rem;
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-align: left;
-    }
-
-    &__ingredients,
-    &__instructions {
-        padding-left: 1.5rem;
-        line-height: 1.6; 
-        margin: 0 auto;
-        text-align: left;
-    }
-
-    &__tags,
-    &__meal-type {
+    &__container {
         display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-
-        &-item {
-            background-color: var.$light-grey;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-        }
+        justify-content: space-between;
+    }
+    
+    &__section {
+        padding: 0.5rem 0;
     }
 }
