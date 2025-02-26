@@ -1,0 +1,7 @@
+<div class="breadcrumb">
+    <a *ngFor="let breadcrumbItem of breadcrumbList" 
+        [routerLink]="breadcrumbItem.route"
+        class="breadcrumb-link">
+        {{ breadcrumbItem.label }}
+    </a>
+</div>

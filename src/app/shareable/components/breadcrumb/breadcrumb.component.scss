@@ -1,0 +1,25 @@
+@use '../../../../../../real-bites/public/styles/variables' as var;
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &-link {
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 0.75rem;
+        line-height: 0.75rem;
+        &::after {
+            content: '/';
+            margin-left: 0.5rem;
+            color: var.$grey;
+        }
+
+        &:last-child::after {
+            content: '';
+        }
+    }
+}
