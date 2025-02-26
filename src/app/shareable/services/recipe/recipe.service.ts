@@ -23,6 +23,8 @@ export class RecipeService {
         let apiEndpoint = `${this.apiUrl}`;
 
         let params = new HttpParams()
+            .set('sortBy', 'name')
+            .set('order','asc')
             .set('limit', limit.toString())
             .set('skip', skip.toString());
 
@@ -48,5 +50,9 @@ export class RecipeService {
 
     deleteRecipe(id: number): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    }
+
+    getTags(): Observable<string[]> {
+        return this.http.get<string[]>(`${this.apiUrl}/tags`);
     }
 }
