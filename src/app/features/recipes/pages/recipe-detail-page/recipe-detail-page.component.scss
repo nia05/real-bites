@@ -2,6 +2,7 @@
 
 .recipe-detail {
     width: calc(100% - 4rem);
+    margin-top: 0.5rem;
     padding: 1.5rem;
     background-color: var.$white;
 
@@ -20,22 +21,25 @@
             &:first-child {
                 padding-left: 0;
             }
-            &::before {
-                content: ""; 
-            }
         }
-
         span {
             font-size: 0.75rem;
             line-height: 0.75rem;
             display: flex;
-            flex-direction: column;
-            
+            flex-direction: column;   
         }
         &-title {
             text-transform: uppercase;
             color: var.$grey;
             padding-bottom: 0.25rem;
+        }
+    }
+    &__ingredients {
+        li {
+            &::before {
+                content: "-"; 
+                margin-right: 0.25rem;
+            }
         }
     }
     &__container {

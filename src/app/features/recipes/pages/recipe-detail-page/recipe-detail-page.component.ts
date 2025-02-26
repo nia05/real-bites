@@ -6,19 +6,26 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { Subscription } from 'rxjs';
 
+import { BreadcrumbComponent } from '../../../../shareable/components/breadcrumb/breadcrumb.component';
+
 import { Recipe } from '../../../../shareable/models/recipe.model'
+import { Breadcrumb } from '../../../../shareable/models/breadcrumb.model';
 
 import { RecipeService } from '../../../../shareable/services/recipe/recipe.service'; 
 
 @Component({
     selector: 'app-recipe-detail-page',
-    imports: [ CommonModule, MatIconModule ],
+    imports: [ CommonModule, MatIconModule, BreadcrumbComponent ],
     templateUrl: './recipe-detail-page.component.html',
     styleUrl: './recipe-detail-page.component.scss'
 })
 export class RecipeDetailPageComponent implements OnInit, OnDestroy {
     recipe!: Recipe;
     loading = true;
+
+    breadcrumbList: Breadcrumb[] = [
+        {label: 'Recipes', route: '/recipes'}
+    ];
 
     private routeSub!: Subscription;
 
@@ -39,6 +46,7 @@ export class RecipeDetailPageComponent implements OnInit, OnDestroy {
     private _getRecipe(id: string): void {
         this.recipeService.getRecipeById(Number(id)).subscribe({
             next: (recipe: Recipe) => {
+                this.breadcrumbList.push({ label: recipe.name, route: '/recipe/' + recipe.id})
                 this.recipe = recipe; 
                 this.loading = false;
             },

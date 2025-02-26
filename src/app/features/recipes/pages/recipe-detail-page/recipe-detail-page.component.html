@@ -1,3 +1,6 @@
+<div class="breadcrumb">
+    <app-breadcrumb [breadcrumbList]="breadcrumbList"></app-breadcrumb>
+</div>
 <section class="recipe-detail" *ngIf="recipe">
     <h1 class="recipe-detail__title">{{ recipe.name }}</h1>
     <img [src]="recipe.image" [alt]="recipe.name" class="recipe-detail__image" />
