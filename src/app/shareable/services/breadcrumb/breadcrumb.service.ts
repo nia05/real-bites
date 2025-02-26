@@ -6,13 +6,15 @@ import { Breadcrumb } from '../../models/breadcrumb.model';
     providedIn: 'root'
 })
 export class BreadcrumbService {
-    private breadcrumbs: Breadcrumb[] =  [{ label: 'Recipes', route: '/recipes' }];
+    private breadcrumbs: Breadcrumb[] =  [];
 
     getBreadcrumbs(): Breadcrumb[] {
         return this.breadcrumbs;
     }
 
     setBreadcrumbs(type: string, recipe?: { name: string; id: number }): void {
+        this.breadcrumbs =  [{ label: 'Recipes', route: '/recipes' }];
+
         if (type === 'recipe-detail' && recipe) {
             this.breadcrumbs.push({ label: recipe.name, route: `/recipe/${recipe.id}` });
         } else if (type === 'recipe-create') {
