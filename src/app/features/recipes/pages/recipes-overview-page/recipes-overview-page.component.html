@@ -4,12 +4,15 @@
     </div>
     <h1>Recipes</h1>
     <p>Discover a variety of delicious recipes.</p>
-    <div class="filters">
-        <mat-form-field appearance="outline" class="search-bar">
-            <mat-label>Search Recipes</mat-label>
-            <input #input matInput type="text" (input)="onSearch(input.value)" placeholder="Search recipes">
+    <div class="filter-bar">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>Search</mat-label>
+            <input #input matInput type="text" 
+                (input)="onSearch(input.value)"
+                placeholder="Search recipes">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
+        <mat-icon color="primary" class="icon">add</mat-icon>
     </div>
 
     <mat-progress-bar *ngIf="loading" mode="indeterminate" class="progress-bar"></mat-progress-bar>

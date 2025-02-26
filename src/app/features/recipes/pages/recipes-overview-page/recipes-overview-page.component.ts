@@ -7,7 +7,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
@@ -24,8 +24,8 @@ import { RecipeService } from '../../../../shareable/services/recipe/recipe.serv
     selector: 'app-recipes-overview-page',
     imports: [ 
         CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
-        MatPaginatorModule, MatFormFieldModule, MatInputModule, MatIconModule,
-        MatSelectModule, BreadcrumbComponent
+        MatPaginatorModule, MatInputModule, MatIconModule, MatFormFieldModule, 
+        BreadcrumbComponent, MatButtonModule
      ],
     templateUrl: './recipes-overview-page.component.html',
     styleUrl: './recipes-overview-page.component.scss'
