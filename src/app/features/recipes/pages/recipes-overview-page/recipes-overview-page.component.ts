@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-
-import { MatCardModule } from '@angular/material/card';
+ 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,7 +23,7 @@ import { RecipeService } from '../../../../shareable/services/recipe/recipe.serv
 @Component({
     selector: 'app-recipes-overview-page',
     imports: [ 
-        CommonModule, MatCardModule, RecipeCardComponent, MatProgressBarModule,
+        CommonModule, RecipeCardComponent, MatProgressBarModule,
         MatPaginatorModule, MatInputModule, MatIconModule, MatFormFieldModule, 
         BreadcrumbComponent, MatButtonModule, MatTooltipModule
      ],
